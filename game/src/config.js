@@ -56,7 +56,8 @@ export const TRAFFIC = {
   cars: 15,
   speed: 165,
   speedJitter: 45,
-  peds: 20,
+  // Busier sidewalks: the city should read alive at a glance, even on foot.
+  peds: 24,
   pedSpeed: 52,
   pedFleeSpeed: 165,
 };

@@ -5,7 +5,7 @@
 
 import { CITY, TRAFFIC, PALETTE } from './config.js';
 import { collideCircle, isOnRoad, nearestRoadPoint, randomRoadPoint, randomSidewalkPoint } from './city.js';
-import { randomInt, randomPick } from './random.js';
+import { randomInt, randomPick, randomChance } from './random.js';
 
 const MODELS = ['sedan', 'sedan', 'hatch', 'truck', 'sport', 'taxi'];
 const LANE = 22;
@@ -96,7 +96,7 @@ function chooseNextRoad(random, car) {
     if (d < nearestD) { nearestD = d; nearest = line; }
   }
   if (nearestD > 30) return null; // not at an intersection yet
-  if (random() < 0.65) return null; // keep going straight
+  if (randomChance(random, 0.65)) return null; // keep going straight
   const newAxis = car.axis === 'x' ? 'y' : 'x';
   const newDir = random() < 0.5 ? -1 : 1;
   return { axis: newAxis, line: nearest, dir: newDir };

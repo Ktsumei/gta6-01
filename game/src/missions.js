@@ -120,8 +120,7 @@ export function startMission(state, index) {
     bannerTimer: 3.2,
     done: false,
   };
-  state.toast(`${mission.giver}: ${mission.intro[0]}`);
-  if (mission.intro[1]) state.toast(mission.intro[1]);
+  for (const line of mission.intro) state.toast(`${mission.giver}: ${line}`);
   startObjective(state, mission, mission.objectives[0]);
 }
 

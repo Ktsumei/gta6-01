@@ -412,7 +412,12 @@ export function respawn(state, kind) {
   for (const cop of state.cops) {
     const dx = cop.x - player.x;
     const dy = cop.y - player.y;
-    if (dx * dx + dy * dy < 200 * 200) { cop.x += 400; cop.y += 400; }
+    // Shove nearby cops away from the safehouse — onto a free spot, not into a wall.
+    if (dx * dx + dy * dy < 200 * 200) {
+      const fixed = collideCircle(state.city, cop.x + 400, cop.y + 400, 11, false);
+      cop.x = fixed.x;
+      cop.y = fixed.y;
+    }
   }
   restartMission(state);
   state.save();

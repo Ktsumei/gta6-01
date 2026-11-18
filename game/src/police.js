@@ -74,7 +74,11 @@ function offscreenRoadPoint(state) {
     if (x < 80 || x > CITY.width - 80 || y < 80 || y > CITY.height - 80) continue;
     return nearestRoadPoint(x, y);
   }
-  return nearestRoadPoint(player.x + POLICE.spawnDistance, player.y);
+  // Last resort: try the other way before spawning on top of the player.
+  const fallback = player.x + POLICE.spawnDistance < CITY.width - 80
+    ? { x: player.x + POLICE.spawnDistance, y: player.y }
+    : { x: player.x - POLICE.spawnDistance, y: player.y };
+  return nearestRoadPoint(fallback.x, fallback.y);
 }
 
 /** Keep the police presence matched to the wanted level. */

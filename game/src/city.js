@@ -19,6 +19,7 @@ export const PLACES = {
   warehouse: { x: 360, y: 1850, label: 'Dock Warehouse' },
   safehouse: { x: 2650, y: 1850, label: 'Safehouse, Gull St' },
   pierEnd: { x: 1600, y: 2370, label: 'The Pier' },
+  lighthouse: { x: 1750, y: 2260, label: 'Solmar Lighthouse' },
   plaza: { x: 1400, y: 1000, label: 'Solmar Plaza' },
   cashDropA: { x: 600, y: 1400, label: 'Cash drop' },
   cashDropB: { x: 2200, y: 600, label: 'Cash drop' },

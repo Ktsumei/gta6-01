@@ -11,7 +11,7 @@
 // Outside the grader's container, MAKEFUN_OUTPUT_DIR stands in for /output:
 //   mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
 
-import { cpSync, existsSync, mkdirSync, writeFileSync } from 'node:fs';
+import { cpSync, existsSync, mkdirSync, readdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildDossier } from './vendor/makefun-game.ts';
@@ -39,3 +39,9 @@ writeFileSync(
     game_path_max_bytes: 1000,
   }),
 );
+
+// Fail loudly on a screenshot set the scorer would refuse, instead of handing in a
+// dossier the gate rejects (the gate allows 3 or 4, each under 256 KiB).
+const shotCount = readdirSync(join(out, 'screenshots')).filter((f) => /\.(png|jpe?g)$/i.test(f)).length;
+if (shotCount < 3 || shotCount > 4) throw new Error(`expected 3 or 4 screenshots, found ${shotCount}`);
+console.log(`SOLMAR handed in: game/ + ${shotCount} screenshots + dossier.json in ${out}`);

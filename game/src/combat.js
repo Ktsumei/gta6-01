@@ -111,6 +111,9 @@ export function playerAttack(state, aimX, aimY) {
       const dy = enemy.y - hy;
       if (dx * dx + dy * dy < 30 * 30) {
         enemy.hp -= PLAYER.punchDamage;
+        // A landed punch shoves the target back, so fists can hold a doorway.
+        enemy.x += Math.cos(angle) * 14;
+        enemy.y += Math.sin(angle) * 14;
         burst(state, enemy.x, enemy.y, '#e5534b', 6, 140, 0.4);
       }
     }

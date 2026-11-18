@@ -502,7 +502,7 @@ export function createRenderer(canvas) {
       text(kmh + ' km/h', 24, VIEW.height - 16, 18, PALETTE.text, 'left');
       text('E — exit car', 24, VIEW.height - 40, 14, PALETTE.muted, 'left');
     } else {
-      text('E — enter car   •   Click — shoot/punch   •   R — reload   •   P — pause', 24, VIEW.height - 16, 14, PALETTE.muted, 'left');
+      text('E / F — enter car   •   Click — shoot/punch   •   R — reload   •   P — pause', 24, VIEW.height - 16, 14, PALETTE.muted, 'left');
     }
     // Toasts, under the objective.
     let toastY = 62;

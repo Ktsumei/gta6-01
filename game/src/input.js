@@ -17,7 +17,7 @@ const SPRINT = new Set(['ShiftLeft', 'ShiftRight']);
 const CONFIRM = new Set(['Space', 'Enter']);
 const PAUSE = new Set(['KeyP', 'Escape']);
 const MUTE = new Set(['KeyM']);
-const INTERACT = new Set(['KeyE']);
+const INTERACT = new Set(['KeyE', 'KeyF']); // F is an alternate enter-car key, for keyboards where E is awkward
 const RELOAD = new Set(['KeyR']);
 
 /**

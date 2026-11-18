@@ -162,6 +162,8 @@ function runGame() {
   document.addEventListener('visibilitychange', () => {
     if (document.hidden && screen === SCREEN_PLAY) {
       screen = SCREEN_PAUSED;
+      // Autosave on tab-hide: the pause is also the moment progress is kept.
+      state.save();
       announce('Paused.');
     }
   });

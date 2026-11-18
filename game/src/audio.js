@@ -145,7 +145,7 @@ export function createAudio() {
       sirenTimer += dt;
       try {
         if (engineGain) engineGain.gain.value = muted ? 0 : Math.min(0.16, Math.abs(speed) / 540 * 0.16);
-        if (engineOsc) engineOsc.frequency.value = 52 + Math.abs(speed) * 0.16;
+        if (engineOsc) engineOsc.frequency.value = 52 + Math.abs(speed) * 0.22; // the engine revs harder with speed, so driving feels faster
         if (sirenGain) sirenGain.gain.value = muted || !policeNear ? 0 : 0.05;
         if (sirenOsc) sirenOsc.frequency.value = (Math.floor(sirenTimer * 2.4) % 2 === 0) ? 720 : 540;
       } catch {

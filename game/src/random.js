@@ -21,6 +21,11 @@ export function randomPick(random, items) {
   return items[Math.floor(random() * items.length)];
 }
 
+/** True with probability `p` (0 to 1), from the seeded stream. */
+export function randomChance(random, p) {
+  return random() < p;
+}
+
 /** Fisher-Yates shuffle of a copy, from the seeded stream. */
 export function shuffled(random, items) {
   const copy = items.slice();

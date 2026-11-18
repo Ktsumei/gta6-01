@@ -203,6 +203,8 @@ export function stageShot(name, state, seed) {
     player.weapon = 'pistol';
     player.ammo = 12;
     player.reserveAmmo = 48;
+    // The shootout frame should show the full HUD: health and armor both up.
+    player.armor = 50;
     player.x = PLACES.warehouse.x - 160;
     player.y = PLACES.warehouse.y + 40;
     state.camera.x = player.x;
